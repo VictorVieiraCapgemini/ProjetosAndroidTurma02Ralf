@@ -1,19 +1,17 @@
 package com.example.projeto1
 import java.util.Scanner
-class Pessoa(
-    val id: Int,
-    var nome: String?,
-    var idade: Int?
-)
-
 class PessoaManager {
     private val listaPessoas = mutableListOf<Pessoa>()
     private var proximoId = 1
-
     fun cadastrar(nome: String?, idade: Int?) {
 
         val nomeValido = nome?.takeIf { it.isNotBlank() && it.none { char -> char.isDigit() } } ?: run {
             println("Erro: Nome inválido, vazio ou contém números.")
+            return
+        }
+
+        if (idade == null) {
+            println("Erro: A idade é obrigatória e deve ser um número inteiro válido.")
             return
         }
 
@@ -42,8 +40,12 @@ class PessoaManager {
                 pessoa.nome = novoNome
             } else if (!novoNome.isNullOrBlank()) {
                 println("Erro: O novo nome contém números e não será alterado.")
+                return false
             }
-            pessoa.idade = novaIdade
+            
+            if (novaIdade != null) {
+                pessoa.idade = novaIdade
+            }
             return true
         }
         return false
@@ -76,7 +78,7 @@ fun main() {
             1 -> {
                 print("Digite o nome: ")
                 val nome = scanner.nextLine()
-                print("Digite a idade (ou deixe vazio): ")
+                print("Digite a idade: ")
                 val idadeInput = scanner.nextLine()
                 val idade = idadeInput.toIntOrNull()
                 manager.cadastrar(nome, idade)
@@ -125,4 +127,3 @@ fun main() {
         }
     }
 }
-
