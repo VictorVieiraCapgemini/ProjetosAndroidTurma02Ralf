@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Projeto1" />
+            <option value="$PROJECT_DIR$/aplicacaocepmvvm" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/gerenciardespesas" />
           </set>

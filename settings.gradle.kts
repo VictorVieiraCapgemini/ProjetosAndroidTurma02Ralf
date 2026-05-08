@@ -26,3 +26,4 @@ rootProject.name = "ProjetosKotlinTurma02AndroidRalf"
 include(":app")
 include(":Projeto1")
 include(":gerenciardespesas")
+include(":aplicacaocepmvvm")
